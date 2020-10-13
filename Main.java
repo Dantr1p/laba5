@@ -9,9 +9,9 @@ public class Main
 		
 		Scanner in = new Scanner(System.in);
 		Laptop laptop1 = new Laptop("no_name",0,0,0,0);
-		pet.input();
+		laptop1.input();
 		double sum=0;
-		sum=pet.add_price(sum);	 
+		sum=laptop1.add_price(sum);	 
 		Shop store = new Shop("DND",1,0,laptop1);
 		store.output();		 
 		store.sale();
@@ -25,7 +25,7 @@ public class Main
 			laptop2[i].input();
 			sum=laptop2[i].add_price(sum);
 		}
-		zooshop store1 = new zooshop("DNS",n,0,laptop2);
+		Shop store1 = new Shop("DNS",n,0,laptop2);
 		store1.output();		
 		store1.sale();
 		store1.output();
