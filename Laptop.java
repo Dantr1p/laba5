@@ -1,48 +1,51 @@
-package petss;
+package laptop;
 import java.util.Scanner;
-public class pets()
+public class Laptop()
 {
-	private String name;
-	private int age;
-	private int wheit;
+	private String model;
+	private int RAM_size;
+	private int CPU_frequency;
 	private double price;
-	public pets 
+	private int year;
+	public Laptop 
 	{
-		this.name="no_name";
-		this.age=0;
-		this.wheit=0;
+		this.model="no_name";
+		this.RAM_size=0;
+		this.CPU_frequency=0;
 		this.price=0;
+		this.year=0;
 	}
-	public pets(String name, int age, int wheit, double price)
+	public Laptop(String model, int RAM_size, int CPU_frequency, double price, int year)
 	{
-		this.name=name;
-		this.age=age;
-		this.wheit=wheit;
+		this.model=model;
+		this.RAM_size=RAM_size;
+		this.CPU_frequency=CPU_frequency;
 		this.price=price;
+		this.year=year;
 	}
-	public void set_name(String name)
+	public void set_model(String model)
 	{
-		this.name=name;
+		this.model=model;
 	}
-	public String get_name()
+	public String get_model()
 	{
-		return this.name;
+		return this.model;
 	}
-	public void set_age(int age)
+	public void set_RAM_size(int RAM_size)
 	{
-		this.age=age;
+		this.RAM_size=RAM_size;
 	}
-	public int get_age()
+	public int get_RAM_size()
 	{
-		return this.age;
+		return this.RAM_size;
 	}
-	public void set_wheit(int wheit)
+	public void set_CPU_frequency(int CPU_frequency)
 	{
-		this.wheit=wheit;
+		this.CPU_frequency=CPU_frequency;
 	}
-	public int get_wheit()
+	public int get_CPU_frequency()
 	{
-		return this.wheit;
+		return this.CPU_frequency;
 	}
 	public void set_price(double price)
 	{
@@ -52,29 +55,42 @@ public class pets()
 	{
 		return this.price;
 	}
+	public void set_year(int year)
+	{
+		this.year=year;
+	}
+	public int get_year()
+	{
+		return this.year;
+	}
 	public void input()
 	{	Scanner in = new Scanner(System.in);
-		pets pet = new pets("no-name",0,0,0);
-		System.out.println("Enter pet's name");
+		Laptop laptop = new Laptop("no-name",0,0,0,0);
+		System.out.println("Enter laptop's model");
 		name=in.nextLine();
-		System.out.println("Enter pet's age");
+		System.out.println("Enter laptop's RAM_size");
 		age=in.nextInt();
-		System.out.println("Enter pet's wheit");
+		System.out.println("Enter laptop's CPU_frequency");
 		wheit=in.nextInt();
-		System.out.println("Enter pet's price");
+		System.out.println("Enter laptop's price");
 		price=in.nextDouble();
+		System.out.println("Enter laptop's year");
+		wheit=in.nextInt();
 	}
 	public void output()
 	{
-		System.out.println("Enter pet's name "+name);
-		System.out.println("Enter pet's age "+ age);
-		System.out.println("Enter pet's wheit "+wheit);
-		System.out.println("Enter pet's price "+price);		
+		System.out.println("Enter laptop's model "+model);
+		System.out.println("Enter laptop's RAM_size "+ RAM_size);
+		System.out.println("Enter laptop's CPU_frequency "+CPU_frequency);
+		System.out.println("Enter laptop's price "+price);	
+		System.out.println("Enter laptop's year "+year);		
 	}
-	public double add_price(double sum)
+	public double add_price(laptop a)
 	{
-		sum+=price;
+		int sum=0;
+		sum=this.price+a.price;
 		System.out.println("Total price: " + sum);
 		return sum;
 	}
 }
+
