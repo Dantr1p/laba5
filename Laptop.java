@@ -85,12 +85,14 @@ public class Laptop()
 		System.out.println("Enter laptop's price "+price);	
 		System.out.println("Enter laptop's year "+year);		
 	}
-	public double add_price(laptop a)
+	public double add_price(double sum)
 	{
-		int sum=0;
-		sum=this.price+a.price;
+		sum+=price;
 		System.out.println("Total price: " + sum);
 		return sum;
 	}
 }
+
+
+
 
