@@ -1,34 +1,21 @@
 import java.util.Scanner;
-import shop.Shop;
-import laptop.Laptop;
 
 public class Main
 {
 	public static void main (String[] args)
-	{	final int N=50;
+	{			
+		Laptop lap1=new Laptop();		
+		Shop store1= new Shop();		
+		lap1.init("Asus", 3500, 16, 124000f, 2021);
+		store1.init("DNS", 1, 0f, lap1);
+		store1.display();
+		System.out.println("Purchase ");
+		int n=store1.purchase("Lenovo", 2500, 8, 50000*1.1, 2017);
+		store1.display();
 		
-		Scanner in = new Scanner(System.in);
-		Laptop laptop1 = new Laptop("no_name",0,0,0,0);
-		laptop1.input();
-		double sum=0;
-		sum=laptop1.add_price(sum);	 
-		Shop store = new Shop("DND",1,0,laptop1);
-		store.output();		 
-		store.sale();
-		store.output();
-		System.out.println("Enter numbers of laptops");
-		int n=in.nextInt();
-		Laptop[] laptop2 = new Laptop[N];
-		for(int i=0; i<n; i++)
-		{
-			laptop2[i] = new Laptop("no_name",0,0,0,0);
-			laptop2[i].input();
-			sum=laptop2[i].add_price(sum);
-		}
-		Shop store1 = new Shop("DNS",n,0,laptop2);
-		store1.output();		
-		store1.sale();
-		store1.output();
-		
+		System.out.println("N= "+n);
+		System.out.println("Sum prices laptop's: "+store1.addprice(n));
+		n=store1.sale();
+		store1.display();
 	}
 }

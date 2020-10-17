@@ -1,87 +1,89 @@
-package shop;
-import laptop.*;
+import java.util.Scanner;
 public class Shop
-{	private static final int N = 50;
-	private string name;
-	private int n;
-	private double cash;
-	private Laptop[] laptop = new Laptop[LEN];
-		
-	public Shop(string name, int n, double cash, Laptop[] laptop)
+{	
+	static final int N=30;
+	String name;
+	int n;
+	double cash;
+	Laptop[] laptop= new Laptop[30];
+	public Shop()
+	{
+		this.name="no name";
+		this.n=0;
+		this.cash=0f;
+	}
+	public Shop(String name, int n, double cash, Laptop[] laptop)
+	{
+		this.name=name;
+		this.n=n;
+		this.cash=cash;
+		for (int i=0; i< n; i++)
+		{
+		this.laptop[i]=laptop[i];
+		}
+	}
+	public void init(String name, int n, double cash, Laptop laptop)
 	{
 		this.name=name;
 		this.n=n;
 		this.cash=cash;		
-		for(int i=0; i<col; i++)
-		{
-			this.laptop[i]=laptop[i];
-		}
+		this.laptop[0]=laptop;		
 	}
-	public Shop(string name, int n, double cash, Laptop laptop)
+	public void init(String name, int n, double cash, Laptop[] laptop)
 	{
 		this.name=name;
 		this.n=n;
-		this.cash=cash;	
-		for(int i=0; i<col; i++)
-		{
-			this.laptop[i]=laptop;
-		}
-	
-	}
-	public void set_name(string name)
-	{
-		this.name=name;
-	}
-	public string get_name()
-	{
-		return this.name;
-	}
-	public void set_n(int n)
-	{
-		this.n=n;
-	}
-	public int get_n()
-	{
-		return this.n;
-	}
-	public void set_cash(double cash)
-	{
 		this.cash=cash;
-	}
-	public double  get_cash()
-	{
-		return this.cash;
-	}	
-	public void read()
-	{
-		System.out.println("The name of store : " +name);
-		System.out.println("The numbers of laptops : " +n);
-		System.out.println("Store money is " +cash);		
-	}
-	public void output()
-	{
-		System.out.println("The name of store : " +name);
-		System.out.println("The numbers of laptops : " +n);		
-		System.out.println("Store money is " +cash);		
-		for(int i=0; i<n; i++)
+		for (int i=0; i< n; i++)
 		{
-		
-		System.out.println("Enter laptop's model "+laptop[i].get_model());
-		System.out.println("Enter laptop's RAM_size "+laptop[i].get_RAM_size());
-		System.out.println("Enter laptop's CPU_frequency "+laptop[i].get_CPU_frequency());
-		System.out.println("Enter laptop's price "+laptop[i].get_price());
-		System.out.println("Enter laptop's year "+laptop[i].get_year());
-		System.out.println();
+		this.laptop[i]=laptop[i];
 		}
-		
-	}	
-	public void sale()
+	}
+	 public void display() {
+        System.out.println("The name of the store: "+name);
+		System.out.println("The number of laptops: "+n);
+		System.out.println("Money: "+cash);
+		System.out.println("");
+		System.out.println("Laptops:");
+		for (int i=0; i< n; i++)
+		{
+		System.out.println(i+1+": ");
+		laptop[i].display();
+		}
+		System.out.println("");
+    }
+	public double addprice(Laptop l1, Laptop l2)
+	{		
+		return l1.getprice()+l2.getprice();
+	}
+	
+	public double addprice(int n)
+	{		
+		double money=0;
+		for (int i=0; i<n; i++)
+		{
+			money=money+laptop[i].getprice();
+		}
+		return money;
+	}
+	
+	public int purchase(String model, int ram, int cpu, double price, int year)
+	{ 		
+		Laptop lap = new Laptop();
+		lap.init(model, ram, cpu, price, year);
+		this.laptop[n]=lap;
+		this.cash=this.cash-price;
+		n++;		
+		return n;
+	}
+	public int sale()
 	{
 		for(int i=0; i<=n; i++)
 		{
-			this.cash+=this.laptop[i].get_price();			
-			this.col-=1;
+			this.cash+=this.laptop[i].getprice();			
+			this.n-=1;
 		}
-		System.out.println("Laptop's sold");
-	}
+		System.out.println("laptop's sold");
+		return n;
+	}	
 }
